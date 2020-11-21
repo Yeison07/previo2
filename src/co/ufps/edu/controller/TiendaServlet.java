@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.ufps.edu.model.Tienda;
 import co.ufps.edu.model.TiendaDAO;
 
 
@@ -17,7 +18,7 @@ import co.ufps.edu.model.TiendaDAO;
 /**
  * Servlet implementation class TiendaServlet
  */
-@WebServlet(name="CategoriaServlet", urlPatterns= {"/Categoria.do"})
+@WebServlet(name="CategoriaServlet", urlPatterns= {"/Tienda.do"})
 public class TiendaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -47,7 +48,7 @@ public class TiendaServlet extends HttpServlet {
 		case "vistaRegistro":
 			vistaRegistrar(request,response);
 			break;
-		case "registrar":
+		case "insert":
 			registrar(request,response);
 			break;
 	
@@ -66,6 +67,18 @@ public class TiendaServlet extends HttpServlet {
 		String web=request.getParameter("web");
 		String imagen=request.getParameter("imagen");
 		
+		Tienda tienda = new Tienda();
+		tienda.setNombre(nombre);
+		tienda.setLema(lema);
+		tienda.setDescripcion(descri);
+		tienda.setEmail(email);
+		tienda.setClave(clave);
+		tienda.setPropietario(propietario);
+		tienda.setFacebook(face);
+		tienda.setWeb(web);
+		tienda.setImagen(imagen);
+		
+		tiendaD.insert(tienda);
 	}
 	private void vistaRegistrar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		// TODO Auto-generated method stub

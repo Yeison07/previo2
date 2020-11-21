@@ -23,41 +23,41 @@
               <form name="form" action="${pageContext.request.contextPath}/Tienda.do" method="get">
               <input type="hidden" name="action" value="insert"/>
                 <div class="form-label-group">
-                  <input type="text" id="inputNombre" class="form-control" placeholder="Nombre" name="id" required autofocus>
+                  <input type="text" id="inputNombre" class="form-control" placeholder="Nombre" name="nombre" required autofocus>
                   <label for="inputNombre">Nombre</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="text" id="inputLema" class="form-control" placeholder="Lema" name="id" required autofocus>
+                  <input type="text" id="inputLema" class="form-control" placeholder="Lema" name="lema" required autofocus>
                   <label for="inputLema">Lema</label>
                 </div>
                 <div class="form-label-group">
-                  <textarea id="inputDescripcion" class="form-control" placeholder="Descripcion" name="id" required autofocus></textarea>
+                  <textarea id="inputDescripcion" class="form-control" placeholder="Descripcion" name="descri" required autofocus></textarea>
                   <label for="inputDescripcion">Descripción</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="id" required autofocus>
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
                   <label for="inputEmail">Email</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="id" required>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="clave" required>
                   <label for="inputPassword">Password</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="input" id="inputPropietario" class="form-control" placeholder="Propietario" name="id" required>
+                  <input type="input" id="inputPropietario" class="form-control" placeholder="Propietario" name="propietario" required>
                   <label for="inputPropietario">Propietario</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="input" id="inputFacebook" class="form-control" placeholder="Facebook" name="id" required>
+                  <input type="input" id="inputFacebook" class="form-control" placeholder="Facebook" name="face" required>
                   <label for="inputFacebook">Facebook</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="input" id="inputWeb" class="form-control" placeholder="Web" name="id" required>
+                  <input type="input" id="inputWeb" class="form-control" placeholder="Web" name="web" required>
                   <label for="inputWeb">Web</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="input" id="inputImagen" class="form-control" placeholder="Imagen" name="id" required>
+                  <input type="input" id="inputImagen" class="form-control" placeholder="Imagen" name="imagen" required>
                   <label for="inputImagen">Imagen</label>
                 </div>
 
