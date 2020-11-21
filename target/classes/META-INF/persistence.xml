@@ -4,8 +4,8 @@
 		<class>co.ufps.edu.model.Cliente</class>
 		<class>co.ufps.edu.model.Servicio</class>
 		<class>co.ufps.edu.model.Tienda</class>
-		<class>co.ufps.edu.model.Seguir</class>
 		<class>co.ufps.edu.model.SeguirPK</class>
+		<class>co.ufps.edu.model.Seguir</class>
 		
 		<properties>
 	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tienda_previo"/>
