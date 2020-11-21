@@ -58,6 +58,8 @@ public class ServicioServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		List <Servicio> listServicio = servicioD.selectAll();
 		request.setAttribute("servicio", listServicio);
+		
+		
 	
 	
 		RequestDispatcher dispatcher= request.getRequestDispatcher("index.jsp");

@@ -20,19 +20,17 @@
         <div class="row  justify-content-center pb-5">
   
             <div class="col-xs-12 col-sm-6 col-md-3">
-            	<a href="login.html" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold mb-2 text-light" type="submit">Login</a>
+            	<a href="vista/login.jsp" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold mb-2 text-light" type="submit">Login</a>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3 align-self-center">
-            	<a href="registro.html" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold mb-2 text-light" type="submit">Registrate</a>
+            	<a href="vista/registro.jsp" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold mb-2 text-light" type="submit">Registrate</a>
             </div>
         </div>
 <
         <div class="row">
-          <c:forEach var="servicio" items="${listServicio}">
+          <c:forEach var="servicio" items="${servicio}">
 
-    
-    
             <!-- Team member -->
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" >
@@ -50,8 +48,8 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title"><c:out value="${servicio.tienda.propietario}" /></h4>
-                                    <p class="card-text"><c:out value="${servicio.tienda.descripcion}" /></p>
+                                    <h4 class="card-title"><c:out value="${}" /></h4>
+                                    <p class="card-text"><c:out value="${}" /></p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
