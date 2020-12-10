@@ -1,6 +1,10 @@
 package co.ufps.edu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -67,6 +71,28 @@ public class TiendaServlet extends HttpServlet {
 		String web=request.getParameter("web");
 		String imagen=request.getParameter("imagen");
 		
+		
+
+		PrintWriter out = response.getWriter();
+		
+		if (!verificarImagen(imagen)) {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('La imagen en la direccion ingresada no existe o no es valida');");
+		    out.println("location='Tienda.do?action=vistaRegistro';");
+		    out.println("</script>");
+				return;
+			
+		} 
+		
+		
+		if(verificarCorreo(email)) {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('El correo ya existe');");
+		    out.println("location='Tienda.do?action=vistaRegistro';");
+		    out.println("</script>");
+				return;
+		}
+		
 		Tienda tienda = new Tienda();
 		tienda.setNombre(nombre);
 		tienda.setLema(lema);
@@ -79,6 +105,33 @@ public class TiendaServlet extends HttpServlet {
 		tienda.setImagen(imagen);
 		
 		tiendaD.insert(tienda);
+		
+		RequestDispatcher dispatcher= request.getRequestDispatcher("Home");
+		dispatcher.forward(request, response);
+	}
+	
+	private boolean verificarImagen(String imagen) throws IOException {
+		try {
+		final URL url = new URL(imagen);
+		HttpURLConnection huc = (HttpURLConnection) url.openConnection();
+		int responseCode = huc.getResponseCode();
+		if (responseCode == 404) {
+			return false;
+		}
+		}
+		catch(Exception ex) {return false;}
+		
+		return true;
+	}
+	
+	private boolean verificarCorreo(String email) {
+		List <Tienda>tiendas= tiendaD.selectAll();
+		for (int i = 0; i < tiendas.size(); i++) {
+			if (email.equals(tiendas.get(i).getEmail())) {
+				return true;
+			}
+		}
+		return false;
 	}
 	private void vistaRegistrar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		// TODO Auto-generated method stub

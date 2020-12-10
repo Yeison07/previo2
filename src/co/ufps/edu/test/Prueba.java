@@ -17,59 +17,55 @@ public class Prueba {
 		
 		//Insertar cliente
 		Cliente c = new Cliente();
-		c.setNombre("Esto es una prueba");
-		c.setEmail("Email prueba");
-		c.setClave("clave");
-	
+		c.setNombre("Yeison Soto");
+		c.setEmail("yeisona07@hotmail.com");
+		c.setClave("1234");
 		
 		ClienteDAO cd = new ClienteDAO();
 		cd.insert(c);
-		
-		
-		
+	
 		//Insertar tienda
 		Tienda t = new Tienda();
-		t.setNombre("tienda prueba");
-		t.setLema("lema de prueba");
-		t.setDescripcion("descripcion de prueba");
-		t.setEmail("email de prueba");
-		t.setClave("clave");
-		t.setPropietario("propietario prueba");
-		t.setFacebook("urlfacebook");
-		t.setWeb("url web");
-		t.setImagen("url imagen");
+		t.setNombre("Tienda creada");
+		t.setLema("Lema de la tienda creado");
+		t.setDescripcion("Descripcion creado");
+		t.setEmail("tienda@hotmail.com");
+		t.setClave("1234");
+		t.setPropietario("Yeison Soto");
+		t.setFacebook("https://www.facebook.com");
+		t.setWeb("https://www.google.com");
+		t.setImagen("https://www.enriquedans.com/wp-content/uploads/2008/12/msie.jpg");
 		
 		TiendaDAO td = new TiendaDAO();
 		td.insert(t);
-		
-		//Insertar servicio
-		Servicio s = new Servicio();
-		s.setNombre("Servicio prueba");
-		s.setDescripcion("Descripcion de prueba");
-		s.setTiendaBean(t);
-		ServicioDAO sd = new ServicioDAO();
-		sd.insert(s);
+	
+		//Trae una tienda
+		Tienda tiendaServicio = td.selectById(11);
+		//Inserta un servicio
+		Servicio servicio = new Servicio();
+		servicio.setNombre("Servicio creado");
+		servicio.setDescripcion("Descripcion creada");
+		servicio.setTiendaBean(tiendaServicio);
+		ServicioDAO servicioD = new ServicioDAO();
+		servicioD.insert(servicio);
 		
 		//Seguir tienda
-		Cliente cliente = cd.selectById(2);
+		Cliente cliente = cd.selectById(4);
+		Tienda tienda = td.selectById(11);
 		
-		SeguirDAO sdao = new SeguirDAO();
+		SeguirPK spk= new SeguirPK();
+		spk.setCliente(cliente.getId());
+		spk.setTienda(tienda.getId());
 		
-		SeguirPK sepk = new SeguirPK();
-		sepk.setCliente(cliente.getId());
+		Seguir seguir = new Seguir();
+		seguir.setId(spk);
 		
-		Seguir se= sdao.selectById(sepk.getCliente());
-		se.setId(sepk);
-		
-		Tienda tienda= td.selectById(se.getId().getTienda());
-		
-		
-		
-		
-		
-		
+		SeguirDAO seguirD = new SeguirDAO();
+		seguirD.insert(seguir);
+			
+			
 		//Actualizar tienda
-		Tienda tiendaActualizar= td.selectById(1);
+		Tienda tiendaActualizar= td.selectById(11);
 		tiendaActualizar.setNombre("tiendaActualizada");
 		td.update(tiendaActualizar);
 		

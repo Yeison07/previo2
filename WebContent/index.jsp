@@ -20,11 +20,14 @@
         <div class="row  justify-content-center pb-5">
   
             <div class="col-xs-12 col-sm-6 col-md-3">
-            	<a href="vista/login.jsp" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold mb-2 text-light" type="submit">Login</a>
+            	<a href="${pageContext.request.contextPath}/Login.do?action=vistaLogin" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold mb-2 text-light" type="submit">Login</a>
+            	
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3 align-self-center">
-            	<a href="vista/registro.jsp" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold mb-2 text-light" type="submit">Registrate</a>
+            	
+            	<a href="${pageContext.request.contextPath}/Tienda.do?action=vistaRegistro" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold mb-2 text-light">Registrate</a>
+            	
             </div>
         </div>
 <
@@ -38,7 +41,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_02.png" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="<c:out value="${servicio.tiendaBean.imagen}" />" alt="card image"></p>
                                     <h4 class="card-title"> <c:out value="${servicio.nombre}" /></h4>
                                     <p class="card-text"> <c:out value="${servicio.descripcion}" /></p>
                                     <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
@@ -48,21 +51,21 @@
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title"><c:out value="${}" /></h4>
-                                    <p class="card-text"><c:out value="${}" /></p>
+                                    <h4 class="card-title"><c:out value="${servicio.tiendaBean.propietario}" /></h4>
+                                    <p class="card-text"><c:out value="${servicio.tiendaBean.descripcion}" /></p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                            <a class="social-icon text-xs-center" target="_blank" href="<c:out value="${servicio.tiendaBean.facebook}" />">
                                                 <i class="fa fa-facebook"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                            <a class="social-icon text-xs-center" target="_blank" href="${servicio.tiendaBean.web}">
                                                 <i class="fa fa-share"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                            <a class="social-icon text-xs-center" target="_blank" href="<c:out value="${servicio.tiendaBean.web}" />">
                                                 <i class="fa fa-info-circle"></i>
                                             </a>
                                         </li>
@@ -80,7 +83,7 @@
         </div>
     </div>
 </section>
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
